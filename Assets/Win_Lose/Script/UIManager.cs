@@ -42,15 +42,5 @@ namespace UI
             this.WinGame.gameObject.SetActive(false);
             this.LoseGame.gameObject.SetActive(true);
         }
-
-        //public void ShowHomePage()
-        //{
-        //    this.ShowPauseGame(0);
-        //    this.PauseGame.SetActive(false);
-        //    this.PlayGame.SetActive(false);
-        //    this.WinGame.gameObject.SetActive(false);
-        //    this.LoseGame.gameObject.SetActive(false);
-        //    this.HomePage.SetActive(true);
-        //}
     }
 }

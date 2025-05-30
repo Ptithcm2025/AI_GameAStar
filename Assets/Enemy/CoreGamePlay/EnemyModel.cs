@@ -2,7 +2,6 @@ namespace CoreGamePlay.Model
 {
     using CoreGamePlay.View;
     using UnityEngine;
-    using System.Collections.Generic;
 
     public class EnemyModel
     {

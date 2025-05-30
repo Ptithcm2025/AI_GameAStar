@@ -82,14 +82,6 @@ namespace CoreGamePlay.View
                 isMoving = false;
                 onComplete?.Invoke();
             });
-            //transform.DOLocalMove(targetPos, moveSpeed)
-            //.SetEase(Ease.Linear)
-            //.OnComplete(() =>
-            //{
-            //    isMoving = false;
-            //    onComplete?.Invoke();
-            //});
-            //this._rectTransform.anchoredPosition = new Vector2(xPos, yPos);
         }
 
         public bool IsMoving()

@@ -50,8 +50,6 @@ namespace CoreGamePlay.Controller
 
             this.MatrixElementModelList = new MatrixElementModel[Size.x, Size.y];
 
-            //Debug.Log(Size.x + " " + Size.y);
-
             for (int i = 0; i < Size.x; ++i)
             {
                 for (int j = 0; j < Size.y; ++j)

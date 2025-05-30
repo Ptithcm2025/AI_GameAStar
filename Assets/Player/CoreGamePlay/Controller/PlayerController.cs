@@ -14,7 +14,6 @@ namespace CoreGamePlay.Controller
 
         public  PlayerModel model;
         private PlayerView view;
-        private float count = 0;
 
 
         public void SpawnPlayer()
@@ -28,15 +27,6 @@ namespace CoreGamePlay.Controller
         {
             if (!view.IsMoving)
             {
-                //this.count += 1;
-                //Debug.Log("Count: " + this.count);
-
-                //if (this.count >= 300)
-                //{
-                //    Debug.Log("Dichuyen");
-                //    this.count = 0;
-                //    EnemyController.Instance.AllFocusPlayer(new Vector2Int(model.gridPosition.x + 1, model.gridPosition.y + 1));
-                //}
                 Vector2Int dir = GetInputDirection();
                 if(dir != Vector2Int.zero)
                 {
