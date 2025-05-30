@@ -1,0 +1,62 @@
+namespace CoreGamePlay.Controller
+{
+    using UnityEngine;
+    using CustomUtils;
+    using CoreGamePlay.View;
+
+    public class PlayerController : SingletonMono<PlayerController>
+    {
+        public Vector2Int startGrid = Vector2Int.zero;
+
+        [Header("Player Data")]
+        public PlayerView playerPrefab;
+        public RectTransform parent;
+
+        public  PlayerModel model;
+        private PlayerView view;
+        private float count = 0;
+
+
+        public void SpawnPlayer()
+        {
+            model = new PlayerModel(startGrid);
+            view = Instantiate(playerPrefab, parent);
+            this.view.GetComponent<RectTransform>().anchoredPosition = view.GridToWorld(model.gridPosition);
+        }
+
+        private void Update()
+        {
+            if (!view.IsMoving)
+            {
+                //this.count += 1;
+                //Debug.Log("Count: " + this.count);
+
+                //if (this.count >= 300)
+                //{
+                //    Debug.Log("Dichuyen");
+                //    this.count = 0;
+                //    EnemyController.Instance.AllFocusPlayer(new Vector2Int(model.gridPosition.x + 1, model.gridPosition.y + 1));
+                //}
+                Vector2Int dir = GetInputDirection();
+                if(dir != Vector2Int.zero)
+                {
+                    bool check = model.Move(dir);
+                    if (check)
+                    {
+                        StartCoroutine(view.MoveToPosition(model.gridPosition));
+                        EnemyController.Instance.AllFocusPlayer(new Vector2Int(model.gridPosition.x + 1, model.gridPosition.y + 1));
+                    }
+                }
+            }
+        }
+
+        Vector2Int GetInputDirection()
+        {
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) return new Vector2Int(-1, 0);
+            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) return new Vector2Int(1, 0);
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) return new Vector2Int(0, -1);
+            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) return new Vector2Int(0, 1);
+            return Vector2Int.zero;
+        }
+    }
+}
