@@ -28,7 +28,7 @@ namespace CoreGamePlay.Controller
             if (!view.IsMoving)
             {
                 Vector2Int dir = GetInputDirection();
-                if(dir != Vector2Int.zero)
+                if (dir != Vector2Int.zero)
                 {
                     bool check = model.Move(dir);
                     if (check)

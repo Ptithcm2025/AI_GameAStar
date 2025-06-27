@@ -15,7 +15,7 @@ namespace CoreGamePlay.View
         {
             position.x += 1;
             position.y += 1;
-            int yPos = (1080 / 2) - (50 + position.x * 50 + (position.x - 1) * 4 - 25);
+            int yPos =  (1080 / 2) - (50 + position.x * 50 + (position.x - 1) * 4 - 25);
             int xPos = -(1920 / 2) + (98 + position.y * 50 + (position.y - 1) * 4 - 25);
 
             return new Vector2Int(xPos, yPos);

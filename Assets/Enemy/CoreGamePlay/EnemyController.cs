@@ -42,7 +42,7 @@
         public EnemyView enemyViewPrefab;
         public RectTransform parent;
         public List<EnemyModel> EnemyModelList;
-        public int SizeEnemyModelList;
+        private int SizeEnemyModelList = 1;
         private bool _isMoving = false;
 
         public void SpawnListEnemy()
@@ -111,11 +111,13 @@
             HashSet<Vector2Int> closedList = new HashSet<Vector2Int>();
 
             for (int i = 0; i < 16; i++)
+            {
                 for (int j = 0; j < 32; j++)
                 {
                     gScore[i, j] = float.MaxValue;
                     cameFrom[i, j] = new Vector2Int(-1, -1);
                 }
+            }
 
             gScore[start.x, start.y] = 0;
             openList.Add(new OpenListElement
@@ -177,7 +179,6 @@
             }
             return null;
         }
-
 
         public Vector2Int Actions(Direction dir, Vector2Int pos)
         {
